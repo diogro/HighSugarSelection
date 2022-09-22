@@ -73,12 +73,12 @@ header-includes:
 - \newcommand{\hideFromPandoc}[1]{#1}
 - \hideFromPandoc{ \let\Begin\begin \let\End\end}
 link-citations: yes
-mainfont: Skolar PE TEST Regular
+mainfont: Skolar PE
 mainfontoptions:
 - Numbers=Lowercase
 - Numbers=Proportional
 csl: ./pandoc/apa.csl
-sansfont: Skolar Sans PE TEST
+sansfont: Skolar Sans PE
 bibliography: ./references.bib
 keywords: [E&R, polygenic selection, Drosophila, High-Sugar Stress, soft sweep]
 ---
@@ -108,11 +108,11 @@ After quality control (see Methods), we obtained allele frequency estimates for 
 
 ## High sugar selection on individual loci
 
-To look for individual loci under selection, we fitted a regression model per SNP incorporating allele frequencies across all time points, replicate populations, and selection regimes. This model identifies SNPs whose allele frequency changes in the same direction over time in all replicate populations. The time coefficient in the model captures changes that are similar across all six populations (**Figure S4, S5**), and the time-by-regime coefficient captures changes that are unique to one selection regime (Figure 2b, S4). The p-values of the time coefficient were highly correlated with SNP loadings onto PC1 (cor = 0.59, p < 10-16, @fig:PCscores_pvals **PANEL**), whereas the the p-values of the time-by-regime coefficient were highly correlated with SNP loadings onto PC2 (cor = 0.68, p < 10-16, @fig:PCscores_pvals **PANEL**), consistent with the first two PCs capturing time and selection regime.
+To look for individual loci under selection, we fitted a regression model per SNP incorporating allele frequencies across all time points, replicate populations, and selection regimes. This model identifies SNPs whose allele frequency changes in the same direction over time in all replicate populations. The time coefficient in the model captures changes that are similar across all six populations (**Figure S4, S5**), and the time-by-regime coefficient captures changes that are unique to one selection regime (@fig:regression C). The p-values of the time coefficient were highly correlated with SNP loadings onto PC1 (cor = 0.59, p < 10-16, @fig:PCscores_pvals **PANEL**), whereas the the p-values of the time-by-regime coefficient were highly correlated with SNP loadings onto PC2 (cor = 0.68, p < 10-16, @fig:PCscores_pvals **PANEL**), consistent with the first two PCs capturing time and selection regime.
 
-Different SNPs showed very different allele frequency trajectories over time. Some respond similarly to selection in all replicate populations regardless of selection regime (Figure S5B left), while others respond in opposite directions (Figure S5B center) or in only one of the regimes (Figure S5B right). Our regression model allowed us to distinguish these different scenarios and for what follows, we focus on the selection signatures that are unique to the high sugar selection regime. The Manhattan profile in @fig:pca B, showing the time-by-regime p-values, suggests a polygenic selection response. This is in line with the observation that time and selection regime are the two main drivers of genetic change genome-wide (figure 2A). Many SNPs also display a delayed selection response, with the largest change in allele frequency after generation 25. This is consistent with theoretical predictions for polygenic adaptation involving independent loci [REF], but could also be due to epistatic effects [REF]. 
+Different SNPs showed very different allele frequency trajectories over time. Some respond similarly to selection in all replicate populations regardless of selection regime (@fig:regression A), while others respond in opposite directions (@fig:regression C) or in only one of the regimes (@fig:regression B). Our regression model allowed us to distinguish these different scenarios and for what follows, we focus on the selection signatures that are unique to the high sugar selection regime. The Manhattan profile in @fig:pca D, showing the time-by-regime p-values, suggests a polygenic selection response. This is in line with the observation that time and selection regime are the two main drivers of genetic change genome-wide (@fig:pca). Many SNPs also display a delayed selection response, with the largest change in allele frequency after generation 25. This is consistent with theoretical predictions for polygenic adaptation involving independent loci [REF], but could also be due to epistatic effects [REF]. 
 
-![ Estimates from the per SNP regression model. Each panel shows a possible pattern of relevant and consistent allele frequency change across the six populations. (A) C and HS (B) C only (C) HS only (D) C and HS opposite directions (?) (E) Manhattan plot showing negative log10 transformed p-values from the regression analysis of allele frequency over time. The p-values correspond to the time-by-selection regime interaction coefficient in the model. A significant p-value thus indicates different trajectories in the two treatments. SNPs showing a selection response primarily in the control regime are not shown. ](./figures/manhattan_pInt_HSonly_cut1e-9.png){ #fig:regression }
+![ Estimates from the per SNP regression model. Each panel shows a possible pattern of relevant and consistent allele frequency change across the six populations. (A) Consistent change in C and HS (B) C only (C) HS and C differ (D) Manhattan plot showing negative log10 transformed p-values from the regression analysis of allele frequency over time. The p-values correspond to the time-by-selection regime interaction coefficient in the model. A significant p-value thus indicates different trajectories in the two treatments. SNPs showing a selection response primarily in the control regime are not shown. ](./figures/manhattan_pInt_HSonly_cut1e-9.png){ #fig:regression }
 
 # Discussion
 
