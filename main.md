@@ -122,9 +122,11 @@ Clear polygenic response, in several replicas. Clear albeit indirect evidence of
 # Methods
 ## Mapping Population
 
-To allow the detection of allelic effects that would be hidden in natural populations due to low frequency, we created a synthetic outbred mapping population. To create this population, we selected 16 inbred lines from the Netherlands population from the [Global Diversity Lines]{.smallcaps} [@Grenier2015-ie]. The lines were selected based upon their low frequency of inversion to reduce the supression of recombination associated with inversions [@Barghi2019-fh]. To establish the population from these lines, we performed a round-robin cross on the initial lines (1 \Female -> 2 \Male, 2->3, ..., 16 -> 1) and subsequently performed a round-robin cross on the F1s to ensure parental representation and that no chromosome was lost. The resulting F2 individuals were placed in large cages and allowed to recombine freely for more than 50 generations. This design increases the allele frequency of rare variants by replicating and randomizing throughout the population.
+To allow the detection of allelic effects that would be hidden in natural populations due to low frequency, we created a synthetic outbred mapping population. To create this population, we selected 16 inbred lines from the Netherlands population from the [Global Diversity Lines]{.smallcaps} [@Grenier2015-ie]. The lines were selected based upon their low frequency of inversion to reduce the suppression of recombination associated with inversions [@Barghi2019-fh]. To establish the population from these lines, we performed a round-robin cross on the initial lines (1 \Female -> 2 \Male, 2->3, ..., 16 -> 1) and subsequently performed a round-robin cross on the F1s to ensure parental representation and that no chromosome was lost. The resulting F2 individuals were placed in large cages and allowed to recombine freely for more than 50 generations. This design increases the allele frequency of rare variants by replicating and randomizing throughout the population. Further, the amount of recombination occurring over more than 50 generations dramatically reduces linkage disequilibrium(i.e.,
+LD decay within <100 bp **SI FIG** ) and yields extremely fine mapping.
 
 ## Selection Regime
+
 
 ## Library preparation and sequencing
 
