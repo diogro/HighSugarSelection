@@ -70,6 +70,8 @@ header-includes:
 - \usepackage{afterpage}
 - \usepackage{stfloats}
 - \usepackage{graphicx}
+- \usepackage{wasysym}
+- \usepackage{marvosym}
 - \newcommand{\hideFromPandoc}[1]{#1}
 - \hideFromPandoc{ \let\Begin\begin \let\End\end}
 link-citations: yes
@@ -138,10 +140,10 @@ To explore the main drivers of genetic changes during the course of the experime
 To detect signals of positive selection, we fitted the following logistic regression model:  
  
 $$
-log(\frac{p_i}{1-p_i}) = \beta_t*t_i + \beta_{HS}*HS_i + \beta_{HS*t}*t_i*HS_i + e_i
+log(\frac{p_i}{1-p_i}) = \beta_t*t_i + \beta_{HS}*{HS}_i + \beta_{HS*t}*t_i*{HS}_i + e_i
 $$
 
-,where $p_i$ denotes the allele frequency at a given locus for individual $i$ in a given population and time point; $t_i$ is an indicator variable corresponding to the 4 sampled time-points (generations 1, 11, 25, and 100); $HS_i$ is an indicator variable corresponding to the two treatments (high sugar and control). The $\beta$ variables are the corresponding regression coefficients. This allowed us to model the allele frequency for every locus across the entire selection experiment in one joint statistical framework. We focus primarily on the interaction effect $\beta_{HS*t}$, which quantifies the degree to which the allele frequency trajectory in the control regime differs from the one in the high sugar regime.
+where $p_i$ denotes the allele frequency at a given locus in a given population and time point; $t_i$ is an indicator variable corresponding to the 4 sampled time-points (generations 1, 11, 25, and 100); $HS_i$ is an indicator variable corresponding to the two treatments (high sugar and control). The $\beta$ variables are the corresponding regression coefficients. This allowed us to model the allele frequency for every locus across the entire selection experiment in one joint statistical framework. We focus primarily on the interaction effect $\beta_{{HS}*t}$, which quantifies the degree to which the allele frequency trajectory in the control regime differs from the one in the high sugar regime.
 
 After fitting this model for all SNPs, we obtained estimates of the effect of time separately for the control and high sugar selection regimes. This was done using the emtrends function in the R package emmeans [@emmeans]. In order to exclude selection signatures that did not correspond to high sugar adaptation, we disregarded SNPs where the effect of time in the high sugar selection regime showed a p-value < $10^{-4}$  . 
 
