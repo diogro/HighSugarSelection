@@ -112,7 +112,9 @@ To look for individual loci under selection, we fitted a regression model per SN
 
 Different SNPs showed very different allele frequency trajectories over time. Some respond similarly to selection in all replicate populations regardless of selection regime (@fig:regression A), while others respond in opposite directions (@fig:regression C) or in only one of the regimes (@fig:regression B). Our regression model allowed us to distinguish these different scenarios and, for what follows, we focus on the selection signatures that are unique to the high sugar selection regime. The Manhattan profile in @fig:pca D, showing the time-by-regime p-values, suggests a polygenic selection response. This is in line with the observation that time and selection regime are the two main drivers of genetic change genome-wide (@fig:pca). Many SNPs also display a delayed selection response, with the largest change in allele frequency after generation 25. This is consistent with theoretical predictions for polygenic adaptation involving independent loci [REF], but could also be due to epistatic effects [REF]. 
 
-![ Estimates from the per SNP regression model. Each panel shows a possible pattern of relevant and consistent allele frequency change across the six populations. (A) Consistent change in C and HS (B) C only (C) HS and C differ (D) Manhattan plot showing negative log10 transformed p-values from the regression analysis of allele frequency over time. The p-values correspond to the time-by-selection regime interaction coefficient in the model. A significant p-value thus indicates different trajectories in the two treatments. SNPs showing a selection response primarily in the control regime are not shown. ](./figures/manhattan_pInt_HSonly_cut1e-9.png){ #fig:regression }
+![ Estimates from the per SNP regression model. Each panel shows a possible pattern of relevant and consistent allele frequency change across the six populations. (A) Consistent change in C and HS (B) C only (C) HS and C differ. Both B and C lead to a significant interaction term between time and treatment, but we filter SNPs that behave like those in panel B and change only in control; (D) Manhattan plot showing negative log10 transformed p-values from the regression analysis of allele frequency over time. The p-values correspond to the time-by-selection regime interaction coefficient in the model. A significant p-value thus indicates different trajectories in the two treatments. SNPs showing a selection response primarily in the control regime are not shown. ](./figures/manhattan_pInt_HSonly_cut1e-9.png){ #fig:regression }
+
+In order to further relate the locus-specific results (#fig:regression) to the genome wide signal quantified by the PCA (@fig:pca), we repeate the PCA after excluding all SNPs with a regression p-value below a given threshold. Changing the significance threshold allowed us to evaluate the effects of the filtered SNPs on the PCA. When using a very conservative threshold, excluding only the most strongly selected SNPs, the results from the PCA remained largely unchanged, showing that the PCA signal is not driven by a few loci under very strong selection (**Figure S6C,D**). We used these changes in the PCA as an heuristic to pick a p-value threshold of $10^{-12}$, since PC2 did no longer distinguish the different selection regimes when excluding SNPs with a p-value below this threshold (**Figure S6E,F**). SNPs passing this significance threshold are thus driving the majority of the selection response to high sugar stress that we observe in the PCA.
 
 # Discussion
 
@@ -126,6 +128,22 @@ To allow the detection of allelic effects that would be hidden in natural popula
 ## Selection Regime
 
 ## Library preparation and sequencing
+
+## Inference of patterns of polygenic adaptation using PCA
+
+To explore the main drivers of genetic changes during the course of the experiment, we performed a principal component analysis of the genome wide allele frequencies. For this analysis, we first assembled a sample-by-SNP matrix P, containing the genome wide allele frequencies in all 24 population samples (4 time points x 2 treatments x 3 replicate populations). We then computed the principal components of this matrix, allowing us to identify the main drivers of allele frequency changes in an unsupervised fashion. 
+
+## Inference of individual loci selection signatures
+
+To detect signals of positive selection, we fitted the following logistic regression model:  
+ 
+$$
+log(\frac{p_i}{1-p_i}) = \beta_t*t_i + \beta_{HS}*HS_i + \beta_{HS*t}*t_i*HS_i + e_i
+$$
+
+,where $p_i$ denotes the allele frequency at a given locus for individual $i$ in a given population and time point; $t_i$ is an indicator variable corresponding to the 4 sampled time-points (generations 1, 11, 25, and 100); $HS_i$ is an indicator variable corresponding to the two treatments (high sugar and control). The $\beta$ variables are the corresponding regression coefficients. This allowed us to model the allele frequency for every locus across the entire selection experiment in one joint statistical framework. We focus primarily on the interaction effect $\beta_{HS*t}$, which quantifies the degree to which the allele frequency trajectory in the control regime differs from the one in the high sugar regime.
+
+After fitting this model for all SNPs, we obtained estimates of the effect of time separately for the control and high sugar selection regimes. This was done using the emtrends function in the R package emmeans [@emmeans]. In order to exclude selection signatures that did not correspond to high sugar adaptation, we disregarded SNPs where the effect of time in the high sugar selection regime showed a p-value < 10-4. 
 
 
 \footnotesize
