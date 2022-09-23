@@ -169,4 +169,4 @@ Corresponding data is available at **Princeton DataSpace link**.
 
 
 
-![Comparison of PC scores and p-values from regression analysis. PC1 scores are similar to p-values from SNPs that show a shared selection signal across treatment and control, and PC2 scores are similar to p-values from SNPs that only show selection signal in HS.](./figures/placeholder.jpg){ #fig:PCscores_pvals }
+![Comparison of PC scores and p-values from regression analysis. PC1 scores are similar to p-values from SNPs that show a shared selection signal across treatment and control, and PC2 scores are similar to p-values from SNPs that only show selection signal in HS.](./figures/placeholder.jpg){#fig:PCscores_pvals tag="S1"}
