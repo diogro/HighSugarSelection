@@ -112,17 +112,31 @@ After quality control (see Methods), we obtained allele frequency estimates for 
 
 To look for individual loci under selection, we fitted a regression model per SNP incorporating allele frequencies across all time points, replicate populations, and selection regimes. This model identifies SNPs whose allele frequency changes in the same direction over time in all replicate populations. The time coefficient in the model captures changes that are similar across all six populations (**Figure S4, S5**), and the time-by-regime coefficient captures changes that are unique to one selection regime (@fig:regression C). The p-values of the time coefficient were highly correlated with SNP loadings onto PC1 (cor = 0.59, p < 10-16, @fig:PCscores_pvals **PANEL**), whereas the the p-values of the time-by-regime coefficient were highly correlated with SNP loadings onto PC2 (cor = 0.68, p < 10-16, @fig:PCscores_pvals **PANEL**), consistent with the first two PCs capturing time and selection regime.
 
-Different SNPs showed very different allele frequency trajectories over time. Some respond similarly to selection in all replicate populations regardless of selection regime (@fig:regression A), while others respond in opposite directions (@fig:regression C) or in only one of the regimes (@fig:regression B). Our regression model allowed us to distinguish these different scenarios and, for what follows, we focus on the selection signatures that are unique to the high sugar selection regime. The Manhattan profile in @fig:pca D, showing the time-by-regime p-values, suggests a polygenic selection response. This is in line with the observation that time and selection regime are the two main drivers of genetic change genome-wide (@fig:pca). Many SNPs also display a delayed selection response, with the largest change in allele frequency after generation 25. This is consistent with theoretical predictions for polygenic adaptation involving independent loci [REF], but could also be due to epistatic effects [REF].
+Different SNPs showed very different allele frequency trajectories over time. Some respond similarly to selection in all replicate populations regardless of selection regime (@fig:regression A), while others respond in opposite directions (@fig:regression C) or in only one of the regimes (@fig:regression B). Our regression model allowed us to distinguish these different scenarios and, for what follows, we focus on the selection signatures that are unique to the high sugar selection regime. The Manhattan profile in @fig:pca D, showing the time-by-regime p-values, suggests a polygenic selection response. This is in line with the observation that time and selection regime are the two main drivers of genetic change genome-wide (@fig:pca). 
 
 ![ Estimates from the per SNP regression model. Each panel shows a possible pattern of relevant and consistent allele frequency change across the six populations. (A) Consistent change in C and HS (B) C only (C) HS and C differ. Both B and C lead to a significant interaction term between time and treatment, but we filter SNPs that behave like those in panel B and change only in control; (D) Manhattan plot showing negative log10 transformed p-values from the regression analysis of allele frequency over time. The p-values correspond to the time-by-selection regime interaction coefficient in the model. A significant p-value thus indicates different trajectories in the two treatments. SNPs showing a selection response primarily in the control regime are not shown. ](./figures/manhattan_pInt_HSonly_cut1e-9.png){ #fig:regression }
 
-In order to further relate the locus-specific results (#fig:regression) to the genome wide signal quantified by the PCA (@fig:pca), we repeat the PCA after excluding all SNPs with a regression p-value below a given threshold. Changing the significance threshold allowed us to evaluate the effects of the filtered SNPs on the PCA. When using a very conservative threshold, excluding only the most strongly selected SNPs, the results from the PCA remained largely unchanged, showing that the PCA signal is not driven by a few loci under very strong selection (**Figure S6C,D**). We used these changes in the PCA as an heuristic to pick a p-value threshold of $10^{-12}$, since PC2 did no longer distinguish the different selection regimes when excluding SNPs with a p-value below this threshold (**Figure S6E,F**). SNPs passing this significance threshold are thus driving the majority of the selection response to high sugar stress that we observe in the PCA.
+In order to further relate the locus-specific results (#fig:regression) to the genome wide signal quantified by the PCA (@fig:pca), we repeat the PCA after excluding all SNPs with a regression p-value below a given threshold. Changing the significance threshold allowed us to evaluate the effects of the filtered SNPs on the PCA. When using a very conservative threshold, excluding only the most strongly selected SNPs, the results from the PCA remained largely unchanged, showing that the PCA signal is not driven by a few loci under very strong selection (fig:pca_threshold **PANEL**). We used these changes in the PCA as an heuristic to pick a p-value threshold of $10^{-12}$, since PC2 did no longer distinguish the different selection regimes when excluding SNPs with a p-value below this threshold (fig:pca_threshold **PANEL**). SNPs passing this significance threshold are thus driving the majority of the selection response to high sugar stress that we observe in the PCA.
+
+### What proportion of the genome is responding to selection?
+
+Using this conservative threshold, ~**K SNPs show a signature of positive selection that is unique to the high sugar selection regime. Considering 200bp around every selected SNP, corresponding to an average $r^2$ of 0.2 (Figure 1D), these SNPs span ~8.6Mb, or ~6% of the mappable genome of _Drosophila melanogaster_. Since the LD around the selected loci is expected to be larger than the genome-wide average, we believe this to be a conservative estimate. The magnitudes of the allele frequency changes tend to be relatively small. Comparing generation 1 to generation 100, the mean change across all SNPs in the populations exposed to the high sugar selection regime is 0.11 (@fig:delta_af), while the mean change among the selected SNPs is 0.25 (figure 3B). Among all the 1.76M SNPs, only 4753 show a pattern where the minor allele at generation 1 has reached fixation at generation 100 in at least one of the populations in the high sugar selection regime. Furthermore, many SNPs also display a delayed selection response, with the largest change in allele frequency after generation 25 (@fig:delta_af). This is consistent with theoretical predictions for polygenic adaptation involving independent loci [@Pavlidis2012-ly; @Chevin2008-gx], but could also be due to epistatic effects [@Paixao2016-gf]. 
+
+![Histograms showing mean changes in allele frequency in the populations exposed the high sugar selection regime, between generation 1 and 11 (pink), 1 and 25 (green), and 1 and 100 (blue). Panel A includes all 1.76M SNPs and panel B includes the 71K SNPs show a signature of positive selection that is unique to the high sugar selection regime. ](./figures/placeholder.jpg){ #fig:delta_af }
+
+### Do the selected alleles show a detectable sweep signature?
+
+Next, we went on to ask the question: do the identified selection signatures tend to coincide with the genomic footprint of a selective sweep? To this end, we estimated individual haplotypes at generation 100, using a core set of 20K high confidence SNPs. The haplotypes were then used to calculate the integrated Haplotype Score (iHS) [@Voight2006-rr] in the high-sugar selected populations. A large iHS indicates an extended haplotype associated with one allele at a given SNP, a pattern characteristic of a selective sweep. The estimated iHS and the p-values from our regression model showed a small but significant correlation (cor = 0.07, p = 2.1*10-17, @fig:iHS), indicating a tendency of longer haplotypes at the selected loci. The observed correlation is however very modest, showing that by and large, the loci indicated to be under selection using our time series data do not display a sweep-like pattern after 100 generations of adaptation. At a nominal significance threshold of p < x, only y% of the selected loci, as inferred from the regression analysis, also displayed a significant iHS. Taken together, these observations are all consistent with the polygenic view of adaptation through subtle shifts in allele frequency at a large number of loci, and with selection acting primarily on standing genetic variation rather than novel mutations. 
 
 # Discussion
 
 Clear polygenic response, in several replicas. Clear albeit indirect evidence of epistatic interactions in the responding loci.
 
+\footnotesize
+
+
 # Methods
+
 ## Mapping Population
 
 To allow the detection of allelic effects that would be hidden in natural populations due to low frequency, we created a synthetic outbred mapping population. To create this population, we selected 16 inbred lines from the Netherlands population from the [Global Diversity Lines]{.smallcaps} [@Grenier2015-ie]. The lines were selected based upon their low frequency of inversion to reduce the supression of recombination associated with inversions [@Barghi2019-fh]. To establish the population from these lines, we performed a round-robin cross on the initial lines (1 \Female -> 2 \Male, 2 \Female -> 3 \Male, ..., 16 \Female -> 1 \Male) and subsequently performed a round-robin cross on the F1s to ensure parental representation and that no chromosome was lost. The resulting F2 individuals were placed in large cages and allowed to recombine freely for more than 50 generations. This design increases the allele frequency of rare variants by replicating and randomizing throughout the population.
@@ -135,7 +149,8 @@ We performed a laboratory natural selection experiment [@Fuller2005-wn] on high-
 
 
 ## Library preparation and sequencing
-Flies from generation 0, 10, 24, and 120 were selected from each population for sequencing and plated in 96 well plates. One 2.8mm stainless steel grinding bead (OPS diagnostics, #089- 5000-11) and 100µl of lysis buffer were added to each well. Flies were homogenized for 10 minutes at maximum speed in a Talboys High Throughput Homogenizer (#930145). The resulting lysate was transferred to a new 96-well plate for DNA extraction, which was performed using a Multi-Well Plate Vacuum Manifold (#5017) and the Acroprep advance 1mL DNA binding plates (#8132), both from Pall Life Sciences.
+
+Flies from generation 1, 11, 25, and 100 were selected from each population for sequencing and plated in 96 well plates. One 2.8mm stainless steel grinding bead (OPS diagnostics, #089- 5000-11) and 100µl of lysis buffer were added to each well. Flies were homogenized for 10 minutes at maximum speed in a Talboys High Throughput Homogenizer (#930145). The resulting lysate was transferred to a new 96-well plate for DNA extraction, which was performed using a Multi-Well Plate Vacuum Manifold (#5017) and the Acroprep advance 1mL DNA binding plates (#8132), both from Pall Life Sciences.
 
 ## Mapping of reads, SNP calling, and estimation of allele frequencies
 
@@ -158,22 +173,24 @@ where $p_i$ denotes the allele frequency at a given locus in a given population 
 After fitting this model for all SNPs, we obtained estimates of the effect of time separately for the control and high sugar selection regimes. This was done using the emtrends function in the R package emmeans [@emmeans]. In order to exclude selection signatures that did not correspond to high sugar adaptation, we disregarded SNPs where the effect of time in the high sugar selection regime showed a p-value above $10^{-4}$  .
 
 
-\footnotesize
 
-## Supporting information
-
-Supporting information can be found at [github.com/diogro/HighSugarSelection](https://github.com/diogro/HighSugarSelection).
-
-### Code and data availability
+## Code and data availability
 
 Code to reproduce figures in this paper is available at [github.com/ayroles-lab/highsugar-selection-code](https://github.com/ayroles-lab/highsugar-selection-code).
 
 Corresponding data is available at **Princeton DataSpace link**.
 
+## Supporting information and figures
+
+Supporting information can be found at [github.com/diogro/HighSugarSelection](https://github.com/diogro/HighSugarSelection).
+
+![Comparison of PC scores and p-values from regression analysis. PC1 scores are similar to p-values from SNPs that show a shared selection signal across treatment and control, and PC2 scores are similar to p-values from SNPs that only show selection signal in HS.](./figures/placeholder.jpg){#fig:PCscores_pvals tag="S1"}
+
+![Across population allele frequency PCA (as in @fig:pca) after exclusion of significant SNPs. As the p-value significance threshold for the high sugar selection interaction term is increased and more putatively selected SNPs are removed, PC2 gradually explains less and less of the divergence between selected and control populations.](./figures/placeholder.jpg){#fig:pca_threshold tag="S2"}
+
+![Negative log10 transformed p-values corresponding to the time-by-selection regime interaction coefficient in the regression analysis of allele frequency over time (y-axis) plotted versus absolute iHS scores (x-axis). 15K SNPs included in the figure, with each point representing one SNP](./figures/placeholder.jpg){#fig:iHS tag="S3"}
+
+
 # References
 
 
-
-
-
-![Comparison of PC scores and p-values from regression analysis. PC1 scores are similar to p-values from SNPs that show a shared selection signal across treatment and control, and PC2 scores are similar to p-values from SNPs that only show selection signal in HS.](./figures/placeholder.jpg){#fig:PCscores_pvals tag="S1"}
