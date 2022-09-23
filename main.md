@@ -144,17 +144,13 @@ To allow the detection of allelic effects that would be hidden in natural popula
 ## Selection Regime
 We performed a laboratory natural selection experiment [@Fuller2005-wn] on high-sugar diets without selecting for any phenotype. High-sugar diets are known to have high fitness costs [@Musselman2011-zq; @Na2013-wq; @Pallares2020-qa] and by allowing our populations to directly evolve on this, we explore the adaptation to this deleterious effect. To do this, we subdivided our mapping population into 6 replicate populations, 3 of which were placed on a standard media and 3 of which were placed on high-sugar media. The standard media consists of 8% glucose, 8% yeast, 1.2% agar, 0.04% phosphoric acid, and 0.4% propionic acid. High-sugar media follows the same recipe as standard media with the addition of 12% glucose resulting in a total of 20% glucose. Each population is placed in a population cage (BugDorm #4F3030) and maintained at ~5000 individuals for ~120 generations. Each generation was seeded from an egg lay, on fresh bottles of the respective diet, at 5-6 days post-eclosion. After pupation but before eclosion, bottles were moved to new cages and opened. Following each egg lay, individuals were collected and stored at -80C for subsequent sequencing.
 
-
-
-
-
 ## Library preparation and sequencing
+Flies from generation 1, 11, 25, and 100 were selected from each population for sequencing and plated in 96 well plates. One 2.8mm stainless steel grinding bead (OPS diagnostics, #089-5000-11) and 100µl of lysis buffer were added to each well. Flies were homogenized for 10 minutes at maximum speed in a Talboys High Throughput Homogenizer (#930145). The resulting lysate was moved to a new 96-well plate for DNA extraction, using a Multi-Well Plate Vacuum Manifold (Pall Life Sciences #5017) and Acroprep advance 1mL DNA binding plates (Pall Life Sciences #8132).
 
-Flies from generation 1, 11, 25, and 100 were selected from each population for sequencing and plated in 96 well plates. One 2.8mm stainless steel grinding bead (OPS diagnostics, #089- 5000-11) and 100µl of lysis buffer were added to each well. Flies were homogenized for 10 minutes at maximum speed in a Talboys High Throughput Homogenizer (#930145). The resulting lysate was transferred to a new 96-well plate for DNA extraction, which was performed using a Multi-Well Plate Vacuum Manifold (#5017) and the Acroprep advance 1mL DNA binding plates (#8132), both from Pall Life Sciences.
+Library prep was performed using a liquid handling robot (CyBio FeliX, Analitik Jena) to ease the processing of many samples and reduce variability from manual handling of samples. The protocol broadly followed the strategy described in Picelli et al [@Picelli2014-ji]. Specifically, we added 10µl (100µM) of forward oligo adapter A and 10µl(100µM) of reverse oligo adapter (Tn5MERev) to 80µl of reassociation buffer (10mM Tris pH 8.0, 50mM NaCl, 1mM EDTA). Following this, we annealed in a thermocycler with the following program: 95°C for 10 minutes, 90°C for 1 minute, reduce the temperature by 1°C per cycle for 60 cycles, and then hold at 4°C. The process was repeated for oligo adapter B. To load the adapters onto Tn5, we mixed 5µl of Tn5, 9µl of pre-annealed adapter A, and 9µl of pre-annealed adapter B then incubated this mixture in a thermocycler at 37°C for 30 minutes. The resulting pre-charged tn5 was the diluted with a 1:1 solution of reassociation buffer and glycerol to 1:1 reassociation buffer:glycerol to pre-charged Tn5.
 
 ## Mapping of reads, SNP calling, and estimation of allele frequencies
-
-
+<!-- https://github.com/Lufpa/DNAseq_pipeline -->
 
 ## Inference of patterns of polygenic adaptation using PCA
 
