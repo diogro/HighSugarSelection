@@ -195,6 +195,15 @@ where $p_i$ denotes the allele frequency at a given locus in a given population 
 
 After fitting this model for all SNPs, we obtained estimates of the effect of time separately for the control and high sugar selection regimes. This was done using the emtrends function in the R package emmeans [@emmeans]. In order to exclude selection signatures that did not correspond to high sugar adaptation, we disregarded SNPs where the effect of time in the high sugar selection regime showed a p-value above $10^{-4}$  .
 
+## Individual level genotypes
+
+To obtain individual-level genotypes rather than allele frequencies from our low coverage data at generation 100, we first filtered our SNP data more stringently. Having already applied the filter described above, we retained SNPs with called genotypes in more than 90% of the individuals, each genotype being called with a minimum depth of 3. We also excluded individuals with more than 50% missing genotypes. This filtering was done separately for each chromosome, giving a set of 51K SNPs called in 412 individuals in the control populations, and 52K SNPs called in 439 individuals in the high sugar populations. 
+
+## Detecting selective sweeps
+
+To detect signatures of selective sweeps, we first used the software shapeit [@Delaneau2008-wq] to phase the individual genotypes into haplotypes. The estimated haplotypes were then used to calculate the integrated Haplotype Score (iHS) [@Voight2006-rr]. Briefly, iHS measures the length of haplotype homozygosity around a given allele, compared to its alternative allele. A recent selective sweep is expected to leave a genomic footprint of extended homozygosity around the selected allele, whereas selection on standing genetic variation and/or polygenic selection might not leave such a footprint [@Lynch1998-ql]. iHS was calculated using the R-package rehh [@Gautier2012-yz], and scores were standardized per allele frequency bin as described in @Voight2006-rr. We calculated iHS at generation 100 in the high sugar selected populations, using the 3 replicate populations. To compare selection signatures inferred from our regression model to selective sweeps inferred by iHS, we contrasted the regression p-values to iHS on a SNP-by-SNP basis (Figure 3A). 
+
+
 ## Transcriptional changes associated with adaptation to high sugar diet
 
 ### Experimental design
@@ -215,6 +224,10 @@ Raw RNA-seq reads were trimmed to remove low quality bases, adapter sequences, a
 
 To identify the transcriptional differences due to adaptation to high sugar, we performed a differential expression analysis between flies evolved in [hs]{.smallcaps} diet and flies evolved in [ctrl]{.smallcaps} diet while accounting for the dietary condition the flies were exposed to for one generation. For each tissue separately, we used a Wald test in DESeq2 [@Love2014-mp] and the following design: Expression ~ Plate + Diet + Genotype, where Plate indicates the 96-well plate in which samples were processed from sample collection through library preparation; Diet represents the dietary condition the flies were exposed to for one generation ([hs]{.smallcaps} or [ctrl]{.smallcaps}); Genotype represent the diet flies evolved in ([hs]{.smallcaps} or [ctrl]{.smallcaps}). Sample size for each of the four groups in body and head, respectively: n(genotype [hs]{.smallcaps}, diet [hs]{.smallcaps}) = 41, 38;  n(genotype [hs]{.smallcaps}, diet [ctrl]{.smallcaps}) = 46, 42; n(genotype [ctrl]{.smallcaps}, diet [ctrl]{.smallcaps}) = 45, 41; n(genotype [ctrl]{.smallcaps}, diet [hs]{.smallcaps}) = 39, 40. p-values were estimated for the null hypothesis lfcThreshold = 0 and alpha = 0.05, and adjusted using Benjamini & Hochberg FDR method.
 
+### Differentially expressed genes and selection
+
+Having identified genes that were differentially expressed between flies adapted to the respective selection regimes, we went on to look for signals of selection in cis with these genes. Considering an interval +- 5Kb around each gene, we looked for SNPs showing a significant time-by-regime effect in the regression analysis and overlapped with the DE genes. To this end we used the R-package GenomicRanges, and the fraction of overlapping selected SNPs was calculated at p-value thresholds {10-5, 10-10, 10-15, 10-20, 10-25, 10-30} for the time-by-regime effect (Figure 4B, black lines). Because of the large number of DE genes and selected SNPs, we expect some amount of overlap between the two by chance. To quantify this expected chance overlap, we performed a permutation test. For each permutation, the same number of SNPs as we observed to be significant at that significance threshold was picked at random from the full set of 1.76M SNPs. We then calculated the fraction of these random SNPs that overlapped with the DE genes. Performing 1000 permutations at each p-value threshold gave us empirical NULL distributions for the overlap (Figure 4B, boxplots).
+
 
 ## Epistatic selection signatures
 
@@ -226,7 +239,7 @@ Using these starting populations, we sample 1000 of the segregating mutations to
 
 During the selection phase of the simulation we sample allele frequencies at regular intervals (every 10 generations) and use these to calculate the correlation between allele frequencies at the QTL pairs. At generation 100, we also measure the gametic disequilibrium between the same pairs of QTLs in both simulations, with the only difference being the presence of the epistatic interaction in one of the scenarios. We compare the mean gametic disequilibrium between these QTL pairs to a distribution of the mean gametic disequilibrium between random pairs of SNPs across chromosomes. To create this distribution, we sample 200 SNPs in each chromosome and calculate the gametic disequilibrium between the pairs, this process is repeated 10k times. We create a separate distribution for each scenario.
 
-### Inference of epistatic selection signatures
+### Identifying well supported epistatic pairs
 
 To detect potential instances of epistatic selection, we looked for two types of signals: 1) correlations between the allele frequencies at different loci; 2) gametic disequilibrium after 100 generations of selection. The former could be due to epistasis or due to similar but independent selection coefficients at the respective loci, while the latter is only expected under epistasis. The correlations were estimated by the Pearson correlation coefficient, using allele frequencies in all generations in the high sugar populations (n = 12 per SNP pair). The gametic disequilibrium was quantified separately in high sugar and control populations, using the individual genotypes at generation 100 described above. For each SNP pair, we tested the amount of deviation from independent segregation using a chi square test (n ~ 420 per SNP pair). 
 Having identified candidate pairs where the two SNPs displayed gametic disequilibrium and were located on different chromosomes, we applied a clustering procedure akin to the LD clumping algorithm implemented in PLINK [@Purcell2007-sk]. The algorithm works as follows:
