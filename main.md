@@ -268,7 +268,7 @@ Supporting information can be found at [github.com/diogro/HighSugarSelection](ht
 
 [Comparison of PC scores and p-values from regression analysis. PC1 scores are similar to p-values from SNPs that show a shared selection signal across treatment and control, and PC2 scores are similar to p-values from SNPs that only show selection signal in HS.](./figures/placeholder.jpg){#fig:PCscores_pvals tag="S1"}
 
-[Across population allele frequency PCA (as in @fig:pca) after exclusion of significant SNPs. As the p-value significance threshold for the high sugar selection interaction term is increased and more putatively selected SNPs are removed, PC2 gradually explains less and less of the divergence between selected and control populations.](./figures/placeholder.jpg){#fig:pca_threshold tag="S2"}
+[Across population allele frequency PCA (as in @fig:pca) after exclusion of significant SNPs. As the p-value significance threshold for the high sugar selection interaction term is increased and more putatively selected SNPs are removed, PC2 gradually explains less and less of the divergence between selected and control populations.](figures/sequential_PCA.png){#fig:pca_threshold tag="S2"}
 
 [Negative log10 transformed p-values corresponding to the time-by-selection regime interaction coefficient in the regression analysis of allele frequency over time (y-axis) plotted versus absolute iHS scores (x-axis). 15K SNPs included in the figure, with each point representing one SNP](./figures/iHS.png){#fig:iHS tag="S3"}
 
