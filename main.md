@@ -266,7 +266,7 @@ Corresponding data is available at **Princeton DataSpace link**.
 
 Supporting information can be found at [github.com/diogro/HighSugarSelection](https://github.com/diogro/HighSugarSelection).
 
-![Comparison of PC scores and p-values from regression analysis. PC1 scores are similar to p-values from SNPs that show a shared selection signal across treatment and control, and PC2 scores are similar to p-values from SNPs that only show selection signal in HS.](./figures/placeholder.jpg){#fig:PCscores_pvals tag="S1"}
+![Comparison of PC scores and p-values from regression analysis. PC1 scores are similar to p-values from SNPs that show a shared selection signal across treatment and control, and PC2 scores are similar to p-values from SNPs that only show selection signal in HS.](figures/manhattan_allSNPsPC12_loadings_pInt_pTime_v2.png){#fig:PCscores_pvals tag="S1"}
 
 ![Across population allele frequency PCA (as in @fig:pca) after exclusion of significant SNPs. As the p-value significance threshold for the high sugar selection interaction term is increased and more putatively selected SNPs are removed, PC2 gradually explains less and less of the divergence between HS and control populations. The Manhattan plot in the final panel shows the -log10 p-values for the interaction term in the regression analysis and the horizontal lines show the various thresholds used in the PCA panels. For each PCA panel, SNPs above the threshold are removed before calculating the PCA. The threshold we chose based on the differentiation between control and HS populations in the PCA plot is marked by the red line in the Manhattan plot and the red binding box around the corresponding PCA plot.](figures/sequential_PCA.png){#fig:pca_threshold tag="S2"}
 
