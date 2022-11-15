@@ -39,3 +39,4 @@ vignettes/*.pdf
 .Renviron
 out/*
 .vscode/settings.json
+pandoc/apa.csl
