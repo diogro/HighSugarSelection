@@ -40,3 +40,5 @@ vignettes/*.pdf
 out/*
 .vscode/settings.json
 pandoc/apa.csl
+reviews/.~lock*
+reviews/.~lock.HS_selection_2023-02-10_JFA_agc_DM.docx#
