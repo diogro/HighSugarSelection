@@ -74,6 +74,7 @@ header-includes:
 - \usepackage{marvosym}
 - \newcommand{\hideFromPandoc}[1]{#1}
 - \hideFromPandoc{ \let\Begin\begin \let\End\end}
+- \newfontfamily\titlefont{Skolar Sans PE}
 link-citations: yes
 mainfont: Skolar PE
 mainfontoptions:
