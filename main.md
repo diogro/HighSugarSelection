@@ -1,5 +1,6 @@
 ---
 title: Longitudinal sequencing reveals polygenic and epistatic nature of genomic response to selection
+version: "1.0"
 author:
   - Simon K.G. Forsberg:
       institute:
@@ -74,7 +75,6 @@ header-includes:
 - \usepackage{marvosym}
 - \newcommand{\hideFromPandoc}[1]{#1}
 - \hideFromPandoc{ \let\Begin\begin \let\End\end}
-- \newfontfamily\titlefont{Skolar Sans PE}
 link-citations: yes
 mainfont: Skolar PE
 mainfontoptions:
@@ -82,9 +82,11 @@ mainfontoptions:
 - Numbers=Proportional
 csl: ./pandoc/apa.csl
 sansfont: Skolar Sans PE
+titlefont: Skolar Sans PE
 bibliography: ./references.bib
-keywords: [E&R, polygenic selection, Drosophila, High-Sugar Stress, soft sweep]
+keywords: [E&R, polygenic selection,  Drosophila melanogaster, High-Sugar Stress, soft sweep]
 ---
+\normalsize
 
 # Introduction
 
@@ -122,7 +124,7 @@ In order to further relate the locus-specific results (@fig:regression) to the g
 
 Using this conservative threshold, ~45k SNPs show a signature of positive selection that is unique to the high sugar selection regime. Considering 200bp around every selected SNP, corresponding to an average r^2^ of 0.2 (@fig:experiment B), these SNPs span ~5.6Mb, or ~4% of the mappable genome of _D. melanogaster_. Since the LD around the selected loci is expected to be larger than the genome-wide average, we believe this to be a conservative estimate. The magnitudes of the allele frequency changes tend to be relatively small. Comparing generation 1 to generation 100, the mean change across all SNPs in the populations exposed to the high sugar selection regime is 0.11, while the mean change among the selected SNPs is 0.25 (@fig:delta_af). Among all the 1.76M SNPs, only 4753 show a pattern where the minor allele at generation 1 has reached fixation at generation 100 in at least one of the populations in the high sugar selection regime. Furthermore, many SNPs also display a delayed selection response, with the largest change in allele frequency after generation 25 (@fig:delta_af). This is consistent with theoretical predictions for polygenic adaptation involving independent loci [@Pavlidis2012-ly; @Chevin2008-gx], but could also be due to epistatic effects [@Paixao2016-gf]. 
 
-![Histograms showing mean changes in allele frequency in the populations exposed the high sugar selection regime, between generation 1 and 11, 1 and 25, and 1 and 100. Panel A includes all 1.76M SNPs and panel B includes the 71k SNPs that show a signature of positive selection unique to the high sugar selection regime. ](./figures/delta_af.png){ #fig:delta_af }
+![Histograms showing mean changes in allele frequency in the populations exposed the high sugar selection regime, between generation 1 and 11, 1 and 25, and 1 and 100. Panel A includes all 1.76M SNPs and panel B includes the 45k SNPs that show a signature of positive selection unique to the high sugar selection regime. ](./figures/delta_af.png){ #fig:delta_af }
 
 ### Do the selected alleles show a detectable sweep signature?
 
