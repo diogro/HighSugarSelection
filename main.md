@@ -7,6 +7,7 @@ author:
         - lsi
         - eeb
         - uppsala
+      email: simon.kg.forsberg@gmail.com 
       equal_contributor: "yes"
   - Diogo Melo:
       institute:
@@ -23,20 +24,25 @@ author:
       orcid: 0000-0003-4397-1395
   - Jennifer K. Grenier:
       institute: cornell
+      email: jkg47@cornell.edu
   - Minjia Tang:
       institute:
         - lsi
         - eeb
+      email: minjiat18@gmail.com
   - Lucas P. Henry:
       institute:
         - lsi
         - eeb
+      email: lucas.price.henry@gmail.com
   - Luisa F. Pallares:
       institute: fml
+      email: luisa.pallares@tuebingen.mpg.de 
       orcid: 0000-0001-6547-1901
   - Andrew G. Clark:
       institute:
         - cornell
+      email: ac347@cornell.edu  
   - Julien Ayroles:
       institute:
         - lsi
@@ -50,11 +56,11 @@ institute:
   - eeb:
       name: Department of Ecology and Evolutionary Biology, Princeton University
   - fml:
-      name: Friedrich Miescher Laboratory, Max Planck Society
+      name: Friedrich Miescher Laboratory of the Max Planck Society, Tübingen, Germany
   - cornell:
       name: Department of Molecular Biology and Genetics, Cornell University, Ithaca, NY, USA
   - uppsala:
-      name: Department of Medical Biochemistry and Microbiology, Uppsala University, Sweden.
+      name: Department of Medical Biochemistry and Microbiology, Uppsala University, Sweden
 
 output: pdf_document
 geometry:
