@@ -42,3 +42,4 @@ out/*
 pandoc/apa.csl
 reviews/.~lock*
 reviews/TANG-MINJIA-THESIS.pdf
+.vscode/ltex.dictionary.en-US.txt
